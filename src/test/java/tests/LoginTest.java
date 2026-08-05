@@ -72,6 +72,7 @@ public class LoginTest extends BaseTest {
 		Assert.assertEquals(driver.getTitle(), "Just a moment...");
 
 		test.pass("Login Successful");
+		System.out.println("Hello world");
 
 	}
 
