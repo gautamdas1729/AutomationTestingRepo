@@ -1,0 +1,22 @@
+pipeline{
+agent any
+ parameter{
+     choice(name: 'ENV', choices: ['QA', 'DEV', 'UAT'], description: 'Environment')
+     choice(name: 'BROWSER' choices: ['Chrome','Edge','Firefox'], description: 'Browser')
+     stages{
+       stage('Checkout')
+       {
+         steps{
+            git branch:'master',
+            url: 'https://github.com/gautamdas1729/AutomationTestingRepo.git'
+         }
+       }
+       stage('Test')
+       {
+         steps{
+            bat 'mvn clean test -Denv=${params.ENV} -DBrowser=${params.BROWSER}'
+         }
+       }
+     }
+ }
+}
