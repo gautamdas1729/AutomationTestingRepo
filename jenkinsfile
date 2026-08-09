@@ -2,7 +2,7 @@ pipeline{
 agent any
  parameter{
      choice(name: 'ENV', choices: ['QA', 'DEV', 'UAT'], description: 'Environment')
-     choice(name: 'BROWSER' choices: ['Chrome','Edge','Firefox'], description: 'Browser')
+     choice(name: 'BROWSER', choices: ['Chrome','Edge','Firefox'], description: 'Browser')
      }
      stages{
        stage('Checkout')
@@ -15,7 +15,7 @@ agent any
        stage('Test')
        {
          steps{
-            bat 'mvn clean test -Denv=${params.ENV} -DBrowser=${params.BROWSER}'
+            bat 'mvn clean test -Denv=${params.ENV} -Dbrowser=${params.BROWSER}'
          }
        }
      }
