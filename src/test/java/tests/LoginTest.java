@@ -39,7 +39,8 @@ public class LoginTest extends BaseTest {
 		return new Object[][] {
 			{"user1","pass1"},
 			{"user2","pass2"},
-			{"user3","pass3"}
+			{"user3","pass3"},
+			{"user4","pass4"}
 		};
 	}
 	
