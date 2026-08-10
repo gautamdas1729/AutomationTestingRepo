@@ -16,6 +16,7 @@ pipeline {
     post{
      always{
         echo 'Test execution completed'
+        archiveArtifacts(artifacts: 'reports/**, sreenshots/**', allowEmptyArchive: true)
      }
      success{
         echo 'Automation tests PASSED'
