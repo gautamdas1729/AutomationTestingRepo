@@ -1,9 +1,14 @@
 pipeline {
-    agent any
+    agent {
+        label: 'selenium'
+    }
 
     parameters {
         choice(name: 'ENV', choices: ['QA', 'DEV', 'UAT'], description: 'Environment')
         choice(name: 'BROWSER', choices: ['Chrome', 'Edge', 'Firefox'], description: 'Browser')
+    }
+    environment{
+          TEST_ENV='QA'
     }
 
     stages {
